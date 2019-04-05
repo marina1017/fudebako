@@ -13,6 +13,7 @@
 		9C58F7EA22564FDA00AE51FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C58F7E922564FDA00AE51FD /* Assets.xcassets */; };
 		9C58F7ED22564FDA00AE51FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58F7EB22564FDA00AE51FD /* LaunchScreen.storyboard */; };
 		9C58F7F822564FDB00AE51FD /* fudebakoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58F7F722564FDB00AE51FD /* fudebakoTests.swift */; };
+		9C58F80422579A0900AE51FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C58F80322579A0900AE51FD /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		9C58F7F322564FDB00AE51FD /* fudebakoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fudebakoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C58F7F722564FDB00AE51FD /* fudebakoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fudebakoTests.swift; sourceTree = "<group>"; };
 		9C58F7F922564FDB00AE51FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C58F80322579A0900AE51FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C58F80422579A0900AE51FD /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				9C58F7E122564FD500AE51FD /* fudebako */,
 				9C58F7F622564FDB00AE51FD /* fudebakoTests */,
 				9C58F7E022564FD500AE51FD /* Products */,
+				9C58F80222579A0900AE51FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +98,14 @@
 				9C58F7F922564FDB00AE51FD /* Info.plist */,
 			);
 			path = fudebakoTests;
+			sourceTree = "<group>";
+		};
+		9C58F80222579A0900AE51FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C58F80322579A0900AE51FD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

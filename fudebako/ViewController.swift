@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
+    var boxClosedCount:Int = 0
+    let talker = AVSpeechSynthesizer()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +23,7 @@ class ViewController: UIViewController {
                                                selector: Selector("proximityChanged"),
                                                name:UIDevice.proximityStateDidChangeNotification,
                                                object: nil)
+        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(ViewController.timerUpdate), userInfo: nil, repeats: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -28,11 +33,33 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    @objc func timerUpdate() {
+        let now = Date()
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        
+        let string = formatter.string(from: now)
+        
+        print(string)
+        let utterance = AVSpeechUtterance(string: "本日は\(string)です")
+        let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(self.boxClosedCount/2)です")
+        let utterance2 = AVSpeechUtterance(string: "夏休みは残り一週間です")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        self.talker.speak(utterance)
+        self.talker.speak(utterance1)
+        self.talker.speak(utterance2)
+    }
     
     @objc func proximityChanged() {
         print(">>>")
         //状態を表示
         print("\(UIDevice.current.proximityState)")
+        self.boxClosedCount += 1
+        print("self.boxClosedCount",self.boxClosedCount)
+        
     }
 }
 
