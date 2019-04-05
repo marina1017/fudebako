@@ -12,45 +12,27 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIScreen.main.brightness = 0.9
-        let center = NotificationCenter.default
-        
-        center.addObserver(self,
-                           selector: #selector(type(of: self).notified(notification:)),
-                           name: Notification.Name.UIApplicationDidBecomeActive,
-                           object: nil)
-//        // 近接監視が有効（true）か無効かを示すブール値
-//        UIDevice.current.isProximityMonitoringEnabled = true
-//
-//        // Observe proximity state
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(proximitySensorStateDidChange),
-//                                               name:Notification.Name.proximityStateDidChangeNotification,
-//                                               object: nil)
+        // 近接監視が有効（true）か無効かを示すブール値
+        UIDevice.current.isProximityMonitoringEnabled = true
+        //照度センサーを監視
+        NotificationCenter.default.addObserver(self,
+                                               selector: Selector("proximityChanged"),
+                                               name:UIDevice.proximityStateDidChangeNotification,
+                                               object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        // Finish observation
-        //UIDevice.current.isProximityMonitoringEnabled = false
-        
-//        NotificationCenter.default.removeObserver(self,
-//                                                  name: NSNotification.Name.UIDeviceProximityStateDidChange,
-//                                                  object: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Internal method
-    
-//    @objc func proximitySensorStateDidChange() {
-//        print("proximityState : \(UIDevice.current.proximityState)")
-//    }
-
-
+    @objc func proximityChanged() {
+        print(">>>")
+        //状態を表示
+        print("\(UIDevice.current.proximityState)")
+    }
 }
 
