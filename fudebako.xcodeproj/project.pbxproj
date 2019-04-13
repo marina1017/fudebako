@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9C58F7E322564FD500AE51FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58F7E222564FD500AE51FD /* AppDelegate.swift */; };
 		9C58F7E522564FD500AE51FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58F7E422564FD500AE51FD /* ViewController.swift */; };
-		9C58F7E822564FD600AE51FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58F7E622564FD600AE51FD /* Main.storyboard */; };
 		9C58F7EA22564FDA00AE51FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C58F7E922564FDA00AE51FD /* Assets.xcassets */; };
 		9C58F7ED22564FDA00AE51FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C58F7EB22564FDA00AE51FD /* LaunchScreen.storyboard */; };
 		9C58F7F822564FDB00AE51FD /* fudebakoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C58F7F722564FDB00AE51FD /* fudebakoTests.swift */; };
@@ -30,7 +29,6 @@
 		9C58F7DF22564FD500AE51FD /* fudebako.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fudebako.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C58F7E222564FD500AE51FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C58F7E422564FD500AE51FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9C58F7E722564FD600AE51FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C58F7E922564FDA00AE51FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C58F7EC22564FDA00AE51FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C58F7EE22564FDA00AE51FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			children = (
 				9C58F7E222564FD500AE51FD /* AppDelegate.swift */,
 				9C58F7E422564FD500AE51FD /* ViewController.swift */,
-				9C58F7E622564FD600AE51FD /* Main.storyboard */,
 				9C58F7E922564FDA00AE51FD /* Assets.xcassets */,
 				9C58F7EB22564FDA00AE51FD /* LaunchScreen.storyboard */,
 				9C58F7EE22564FDA00AE51FD /* Info.plist */,
@@ -191,7 +188,6 @@
 			files = (
 				9C58F7ED22564FDA00AE51FD /* LaunchScreen.storyboard in Resources */,
 				9C58F7EA22564FDA00AE51FD /* Assets.xcassets in Resources */,
-				9C58F7E822564FD600AE51FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,14 +229,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9C58F7E622564FD600AE51FD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C58F7E722564FD600AE51FD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9C58F7EB22564FDA00AE51FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -375,7 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78Q29B3V8M;
 				INFOPLIST_FILE = fudebako/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78Q29B3V8M;
 				INFOPLIST_FILE = fudebako/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

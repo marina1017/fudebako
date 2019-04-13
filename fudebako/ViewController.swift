@@ -16,6 +16,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.red
         // 近接監視が有効（true）か無効かを示すブール値
         UIDevice.current.isProximityMonitoringEnabled = true
         //照度センサーを監視
