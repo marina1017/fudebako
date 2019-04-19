@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     var boxClosedCount:Int = 0
     let talker = AVSpeechSynthesizer()
     
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
                                                selector: Selector("proximityChanged"),
                                                name:UIDevice.proximityStateDidChangeNotification,
                                                object: nil)
-        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(ViewController.timerUpdate), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(MainViewController.timerUpdate), userInfo: nil, repeats: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     @objc func timerUpdate() {
         let now = Date()
         
