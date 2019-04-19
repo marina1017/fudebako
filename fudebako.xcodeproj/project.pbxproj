@@ -16,6 +16,8 @@
 		C0BE1295226A25AD00E93D24 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE1294226A25AD00E93D24 /* Appearance.swift */; };
 		C0BE1297226A28FE00E93D24 /* UIView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE1296226A28FE00E93D24 /* UIView+extensions.swift */; };
 		C0BE1299226A2FF800E93D24 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE1298226A2FF800E93D24 /* MainView.swift */; };
+		C0BE129B226A34E800E93D24 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE129A226A34E800E93D24 /* MainTabViewController.swift */; };
+		C0BE129D226A352E00E93D24 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE129C226A352E00E93D24 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		C0BE1294226A25AD00E93D24 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		C0BE1296226A28FE00E93D24 /* UIView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extensions.swift"; sourceTree = "<group>"; };
 		C0BE1298226A2FF800E93D24 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C0BE129A226A34E800E93D24 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		C0BE129C226A352E00E93D24 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				9C58F7E422564FD500AE51FD /* MainViewController.swift */,
+				C0BE129A226A34E800E93D24 /* MainTabViewController.swift */,
+				C0BE129C226A352E00E93D24 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -283,6 +289,8 @@
 				C0BE1297226A28FE00E93D24 /* UIView+extensions.swift in Sources */,
 				C0BE1299226A2FF800E93D24 /* MainView.swift in Sources */,
 				9C58F7E322564FD500AE51FD /* AppDelegate.swift in Sources */,
+				C0BE129D226A352E00E93D24 /* SettingViewController.swift in Sources */,
+				C0BE129B226A34E800E93D24 /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
