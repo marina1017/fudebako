@@ -34,7 +34,10 @@ class DatePickerViewCell: UITableViewCell {
 
     private func setup() {
         self.addSubViewWithFittingParent(self.datePicker)
-        //userDafaultからデータを取り出していままで設定されていた時刻を入れる
+    }
+
+    func bind(){
+        //特定の時刻を入れてあげる関数
         //self.datePicker
     }
 
@@ -43,6 +46,8 @@ class DatePickerViewCell: UITableViewCell {
         print("てすと",sender)
         //つかうかわからないけど一応準備
         Notification.post("DatePickerViewCell.datePickerValueChanged", userInfo: ["Date": sender.date])
+        //userDefaultにデータを保存させる
+
     }
 
 }
