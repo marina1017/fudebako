@@ -119,7 +119,7 @@ extension SettingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView: HeaderView = HeaderView()
         footerView.backgroundColor = Appearance.color.background
-        footerView.textLabel.text = "指定された時刻に読み上げを開始します。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+        footerView.textLabel.text = "指定された時刻に読み上げを開始します。"
         return footerView
     }
 

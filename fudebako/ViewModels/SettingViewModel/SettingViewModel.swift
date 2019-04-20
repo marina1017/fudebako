@@ -39,12 +39,7 @@ class SettingViewModel {
                 return
             }
             Defaults[.notifiedTime] = date
-            let f = DateFormatter()
-            f.timeStyle = .full
-            f.dateStyle = .full
-            f.locale = Locale(identifier: "ja_JP")
-            print("値をだす",f.string(from: date)) // 平成29年8月13日日曜日 16時29分05秒 日本標準時
-            print("Defaults[.notifiedTime]",Defaults[.notifiedTime])
+            Notification.post("SettingViewModel.dateValueChanged", userInfo: ["Date": date])
         }
     }
 

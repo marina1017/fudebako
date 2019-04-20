@@ -31,7 +31,7 @@ class MainView: UIView {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textColor = .white
-        label.font = Appearance.font.label(25, weight: .medium)
+        label.font = Appearance.font.label(20, weight: .medium)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.text = "今日は0回開けました"
@@ -86,7 +86,7 @@ class MainView: UIView {
 
     //MARK: 最新時間の更新
     func bindDescription(_ data: Int) {
-        self.descriptionLabel.text = "本日開かれた回数は\(Defaults[.count]/2)です"
+        self.descriptionLabel.text = "本日開かれた回数は\(Defaults[.count]/2)回です"
     }
 
 }

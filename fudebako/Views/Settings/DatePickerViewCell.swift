@@ -44,7 +44,6 @@ class DatePickerViewCell: UITableViewCell {
     //datepickerが選択されたら
     @objc func datePickerValueChanged(sender: UIDatePicker) {
         Notification.post("DatePickerViewCell.datePickerValueChanged", userInfo: ["Date": sender.date])
-
     }
 
 }

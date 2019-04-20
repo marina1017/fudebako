@@ -12,7 +12,7 @@ import AVFoundation
 class MainViewController: UIViewController {
 
     var boxClosedCount:Int = 0
-    let talker = AVSpeechSynthesizer()
+    //let talker = AVSpeechSynthesizer()
 
     //MARK: MainView
     private lazy var mainView: MainView = {
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
         UIDevice.current.isProximityMonitoringEnabled = true
 
         //ここから修正が必要
-        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(MainViewController.timerUpdate), userInfo: nil, repeats: true)
+//        Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(MainViewController.timerUpdate), userInfo: nil, repeats: true)
         //ここまで
     }
 
@@ -51,23 +51,23 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    @objc func timerUpdate() {
-        let now = Date()
-
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ja_JP")
-
-        let string = formatter.string(from: now)
-
-        let utterance = AVSpeechUtterance(string: "本日は\(string)です")
-        let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(self.boxClosedCount/2)です")
-        let utterance2 = AVSpeechUtterance(string: "夏休みは残り一週間です")
-        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-        self.talker.speak(utterance)
-        self.talker.speak(utterance1)
-        self.talker.speak(utterance2)
-    }
+//    @objc func timerUpdate() {
+//        let now = Date()
+//
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .long
+//        formatter.timeStyle = .short
+//        formatter.locale = Locale(identifier: "ja_JP")
+//
+//        let string = formatter.string(from: now)
+//
+//        let utterance = AVSpeechUtterance(string: "本日は\(string)です")
+//        let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(self.boxClosedCount/2)です")
+//        let utterance2 = AVSpeechUtterance(string: "夏休みは残り一週間です")
+//        utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+//        self.talker.speak(utterance)
+//        self.talker.speak(utterance1)
+//        self.talker.speak(utterance2)
+//    }
 }
 
