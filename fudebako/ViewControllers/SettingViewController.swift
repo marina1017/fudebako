@@ -30,6 +30,8 @@ class SettingViewController: UIViewController {
 
         return tableView
     }()
+
+    private var viewModel: SettingViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
