@@ -22,16 +22,13 @@ class SettingViewController: UIViewController {
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = Appearance.color.background
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(DatePickerViewCell.self, forCellReuseIdentifier: NSStringFromClass(DatePickerViewCell.self))
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
         tableView.sectionFooterHeight = 100
-
-
 
         return tableView
     }()
@@ -39,6 +36,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "設定"
+        self.view.backgroundColor = Appearance.color.background
         self.view.addSubViewWithFittingParent(self.tableView)
 
         
@@ -58,6 +56,15 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //セルの選択解除
         self.tableView.deselectRow(at: indexPath, animated: true)
+        let cellType = self.cellTypes[indexPath.row]
+
+        switch cellType {
+        case .datePickerViewCell:
+            print(".datePickerViewCell")
+        case .defaultCell:
+            print(".defaultCell")
+            self.resetCount()
+        }
 
     }
 
@@ -66,6 +73,37 @@ extension SettingViewController: UITableViewDelegate {
 
     }
 
+    //MARK: セルの移動禁止
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    //MARK: セルの編集を禁止
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
+    //MARK: カウントをリセットをする関数
+    private func resetCount() {
+
+        self.showDialog(nil,
+                        message: "カウントした回数が\nリセットされますがよろしいですか？",
+                        success: { alert in
+                            //                            //初期化
+                            //                            self.count = 0
+        },
+                        failure: nil)
+    }
+
+    //MARK: ダイアログを出す関数
+    private func showDialog(_ title: String?, message: String, success:((UIAlertAction)-> Void)?, failure:((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: success)
+        let cancelAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: failure)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController,animated: true, completion: nil)
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
@@ -90,11 +128,16 @@ extension SettingViewController: UITableViewDataSource {
             return cell
         case .defaultCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
-            cell.textLabel?.text = "リセット"
+            cell.textLabel?.text = "カウント回数のリセット"
+            cell.textLabel?.baselineAdjustment
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .red
+
             return cell
         }
     }
 
+    //MARK: ヘッダーの設定
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "読み上げ時刻の設定"
     }
@@ -102,8 +145,8 @@ extension SettingViewController: UITableViewDataSource {
     //MARK: 独自フッターの設定
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView: HeaderView = HeaderView()
-        footerView.backgroundColor =
-        footerView.textLabel.text = "指定された時刻に読み上げを開始します。"
+        footerView.backgroundColor = Appearance.color.background
+        footerView.textLabel.text = "指定された時刻に読み上げを開始します。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
         return footerView
     }
 

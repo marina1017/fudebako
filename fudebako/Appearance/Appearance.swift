@@ -74,7 +74,7 @@ final class Appearance {
     }
 
     struct Color {
-        let background = UIColor.format(hex: 0x0D0D0D)
+        let background = UIColor.format(hex: 0xf5f5f5)
         let font = UIColor.format(hex: 0xfffffff)
         let navigation = UIColor.format(hex: 0x181818)
     }

@@ -13,7 +13,8 @@ class HeaderView: UICollectionReusableView {
     lazy var textLabel: UITextView = {
         let textLabel = UITextView()
         textLabel.backgroundColor = .clear
-        textLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+        textLabel.font = Appearance.font.label(12)
+        textLabel.isEditable = false
         return textLabel
     }()
 
