@@ -13,8 +13,9 @@ class MainView: UIView {
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
-        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.font = UIFont.systemFont(ofSize: 150.0)
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.text = "15:00"
         return label
     }()
@@ -25,7 +26,8 @@ class MainView: UIView {
         label.backgroundColor = .white
         label.font = UIFont.systemFont(ofSize: 15.0)
         label.adjustsFontSizeToFitWidth = true
-        label.text = "今日は○回開けました"
+        label.textAlignment = .center
+        label.text = "今日は3回開けました"
         return label
     }()
 
@@ -57,7 +59,7 @@ class MainView: UIView {
         self.descriptionLabel.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor, constant: 2.0).isActive = true
         self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0.0).isActive = true
         self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0.0).isActive = true
-        self.descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0.0).isActive = true
+        self.descriptionLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0.0).isActive = true
     }
 
 }
