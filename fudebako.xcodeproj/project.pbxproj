@@ -171,8 +171,8 @@
 		C0BE128F226A247300E93D24 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C0BE12B6226B5BAA00E93D24 /* SettingViewModel */,
 				C0BE12B0226B3E1A00E93D24 /* MainViewModel */,
-				C0BE12B1226B3E3300E93D24 /* SettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -233,6 +233,14 @@
 				C0BE12AE226B3E1000E93D24 /* MainViewModel.swift */,
 			);
 			path = MainViewModel;
+			sourceTree = "<group>";
+		};
+		C0BE12B6226B5BAA00E93D24 /* SettingViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C0BE12B1226B3E3300E93D24 /* SettingViewModel.swift */,
+			);
+			path = SettingViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

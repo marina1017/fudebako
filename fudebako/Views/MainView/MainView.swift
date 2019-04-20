@@ -12,19 +12,26 @@ class MainView: UIView {
     //時間を表示するLabel
     private lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .white
-        label.font = UIFont.systemFont(ofSize: 150.0)
+        label.backgroundColor = .clear
+        label.font = UIFont.systemFont(ofSize: 110.0)
+        label.textColor = .orange
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        label.text = "15:00"
+        let f = DateFormatter()
+        f.timeStyle = .short
+        f.dateStyle = .none
+        f.locale = Locale(identifier: "ja_JP")
+        let now = Date()
+        label.text = f.string(from: now)
         return label
     }()
 
     //「今日は○回開けました」を表示するLabel
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .white
-        label.font = UIFont.systemFont(ofSize: 15.0)
+        label.backgroundColor = .clear
+        label.textColor = .white
+        label.font = Appearance.font.label(25, weight: .medium)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.text = "今日は3回開けました"
@@ -46,12 +53,14 @@ class MainView: UIView {
         self.addSubview(self.timeLabel)
         self.addSubview(self.descriptionLabel)
         self.setUpConstraints()
+        self.backgroundColor = .black
     }
 
     //MARK: 制約を決める
     private func setUpConstraints(){
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.timeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8.0).isActive = true
+        self.timeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30.0).isActive = true
+        self.timeLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1).isActive = true
         self.timeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8.0).isActive = true
         self.timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8.0).isActive = true
 
@@ -59,7 +68,11 @@ class MainView: UIView {
         self.descriptionLabel.topAnchor.constraint(equalTo: self.timeLabel.bottomAnchor, constant: 2.0).isActive = true
         self.descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0.0).isActive = true
         self.descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0.0).isActive = true
-        self.descriptionLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0.0).isActive = true
+        self.descriptionLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.1).isActive = true
+    }
+
+    func bind(_ data:Constants) {
+        //self.timeLabel
     }
 
 }
