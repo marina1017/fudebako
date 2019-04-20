@@ -10,19 +10,34 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    private lazy var tableView: UITableView = {
-        let tabelView = UITableView()
-        tabelView.backgroundColor = .white
-        tabelView.delegate = self
-        tabelView.dataSource = self
+    let items:[String] = ["app","a","aa"]
 
-        return tabelView
+    enum CellType {
+        case datePickerViewCell
+        case defaultCell
+    }
+
+    let cellTypes:[CellType] = [.datePickerViewCell,
+                                .defaultCell]
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .white
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(DatePickerViewCell.self, forCellReuseIdentifier: NSStringFromClass(DatePickerViewCell.self))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: NSStringFromClass(UITableViewCell.self))
+
+
+        return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubViewWithFittingParent(self.tableView)
         self.navigationItem.title = "設定"
+        self.view.addSubViewWithFittingParent(self.tableView)
+
         
     }
 
@@ -53,20 +68,22 @@ extension SettingViewController: UITableViewDelegate {
 extension SettingViewController: UITableViewDataSource {
     //MARK: セクション数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
 
     //MARK: どのセルを返すのか
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //あとでやる
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-            ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        cell.backgroundColor = UIColor.darkGray
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.numberOfLines = 0
-        cell.layoutMargins = .zero
+        let cellType = cellTypes[indexPath.row]
 
-        return cell
+        switch cellType {
+        case .datePickerViewCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(DatePickerViewCell.self), for: indexPath) as! DatePickerViewCell
+            return cell
+        case .defaultCell:
+            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
+            cell.textLabel?.text = "テスト"
+            return cell
+        }
     }
 
 

@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubViewWithInsetsForParent(self.mainView, with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        self.navigationItem.title = "タイマー"
 //        // 近接監視が有効（true）か無効かを示すブール値
 //        UIDevice.current.isProximityMonitoringEnabled = true
 //        //照度センサーを監視
