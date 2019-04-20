@@ -20,6 +20,8 @@
 		C0BE129D226A352E00E93D24 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE129C226A352E00E93D24 /* SettingViewController.swift */; };
 		C0BE129F226AB0DD00E93D24 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE129E226AB0DD00E93D24 /* HeaderView.swift */; };
 		C0BE12A1226AB46000E93D24 /* DatePickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12A0226AB46000E93D24 /* DatePickerViewCell.swift */; };
+		C0BE12A5226AF34500E93D24 /* NotificationCountUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12A4226AF34500E93D24 /* NotificationCountUserDefault.swift */; };
+		C0BE12A7226B112600E93D24 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12A6226B112600E93D24 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		C0BE129C226A352E00E93D24 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C0BE129E226AB0DD00E93D24 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C0BE12A0226AB46000E93D24 /* DatePickerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewCell.swift; sourceTree = "<group>"; };
+		C0BE12A4226AF34500E93D24 /* NotificationCountUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCountUserDefault.swift; sourceTree = "<group>"; };
+		C0BE12A6226B112600E93D24 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 		C0BE12A3226AF2E400E93D24 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				C0BE12A4226AF34500E93D24 /* NotificationCountUserDefault.swift */,
+				C0BE12A6226B112600E93D24 /* Notification.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -313,7 +319,9 @@
 				C0BE1299226A2FF800E93D24 /* MainView.swift in Sources */,
 				9C58F7E322564FD500AE51FD /* AppDelegate.swift in Sources */,
 				C0BE129D226A352E00E93D24 /* SettingViewController.swift in Sources */,
+				C0BE12A5226AF34500E93D24 /* NotificationCountUserDefault.swift in Sources */,
 				C0BE129B226A34E800E93D24 /* MainTabViewController.swift in Sources */,
+				C0BE12A7226B112600E93D24 /* Notification.swift in Sources */,
 				C0BE129F226AB0DD00E93D24 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

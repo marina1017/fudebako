@@ -16,6 +16,10 @@ class DatePickerViewCell: UITableViewCell {
         datePicker.layer.cornerRadius = 5.0
         datePicker.layer.shadowOpacity = 0.5
         datePicker.datePickerMode = .time
+        datePicker.timeZone = NSTimeZone.local
+        datePicker.locale = Locale.current
+        //MARK:メモ - UIDatePickerにdelegateは無いので Target-Action design patternで対応する
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: UIControl.Event.valueChanged)
         return datePicker
     }()
 
@@ -30,6 +34,15 @@ class DatePickerViewCell: UITableViewCell {
 
     private func setup() {
         self.addSubViewWithFittingParent(self.datePicker)
+        //userDafaultからデータを取り出していままで設定されていた時刻を入れる
+        //self.datePicker
+    }
+
+    //datepickerが選択されたら
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
+        print("てすと",sender)
+        //つかうかわからないけど一応準備
+        Notification.post("DatePickerViewCell.datePickerValueChanged", userInfo: ["Date": sender.date])
     }
 
 }
