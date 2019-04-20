@@ -100,6 +100,7 @@
 				C0BE128E226A245900E93D24 /* Extensions */,
 				C0BE128D226A244C00E93D24 /* Views */,
 				9C58F7E222564FD500AE51FD /* AppDelegate.swift */,
+				C0BE12A2226AF2C700E93D24 /* Infrastructure */,
 				9C58F7E922564FDA00AE51FD /* Assets.xcassets */,
 				9C58F7EB22564FDA00AE51FD /* LaunchScreen.storyboard */,
 				9C58F7EE22564FDA00AE51FD /* Info.plist */,
@@ -188,6 +189,21 @@
 				C0BE1294226A25AD00E93D24 /* Appearance.swift */,
 			);
 			path = Appearance;
+			sourceTree = "<group>";
+		};
+		C0BE12A2226AF2C700E93D24 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C0BE12A3226AF2E400E93D24 /* Local */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		C0BE12A3226AF2E400E93D24 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

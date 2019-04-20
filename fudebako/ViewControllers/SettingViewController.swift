@@ -10,8 +10,6 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    let items:[String] = ["app","a","aa"]
-
     enum CellType {
         case datePickerViewCell
         case defaultCell
@@ -62,14 +60,8 @@ extension SettingViewController: UITableViewDelegate {
         case .datePickerViewCell:
             print(".datePickerViewCell")
         case .defaultCell:
-            print(".defaultCell")
             self.resetCount()
         }
-
-    }
-
-    //MARK: セルが削除された時
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
     }
 
@@ -129,7 +121,6 @@ extension SettingViewController: UITableViewDataSource {
         case .defaultCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(UITableViewCell.self), for: indexPath)
             cell.textLabel?.text = "カウント回数のリセット"
-            cell.textLabel?.baselineAdjustment
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .red
 

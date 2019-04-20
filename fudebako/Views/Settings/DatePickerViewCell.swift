@@ -15,6 +15,7 @@ class DatePickerViewCell: UITableViewCell {
         datePicker.backgroundColor = .white
         datePicker.layer.cornerRadius = 5.0
         datePicker.layer.shadowOpacity = 0.5
+        datePicker.datePickerMode = .time
         return datePicker
     }()
 
@@ -28,7 +29,6 @@ class DatePickerViewCell: UITableViewCell {
     }
 
     private func setup() {
-        self.backgroundColor = .red
         self.addSubViewWithFittingParent(self.datePicker)
     }
 
