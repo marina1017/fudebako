@@ -14,6 +14,7 @@ class MainViewModel {
 
     var mainView: MainView!
     let talker = AVSpeechSynthesizer()
+    var timer: Timer?
 
     init(_ mainView: MainView) {
         self.mainView = mainView
@@ -45,15 +46,25 @@ class MainViewModel {
 
         //時間の変更を監視するイベント
         Notification.onMainThread(self, name: "SettingViewModel.dateValueChanged") { notification in
-
             guard let date = (notification as NSNotification).userInfo?["Date"] as? Date else {
                 return
             }
 
+            //指定の時間-今の時間で次の声をだす
             print("date.timeIntervalSinceNow",date.timeIntervalSinceNow)
-            Timer.scheduledTimer(timeInterval: date.timeIntervalSinceNow, target: self, selector: #selector(MainViewModel.updateTimer), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: date.timeIntervalSinceNow, target: self, selector: #selector(MainViewModel.updateTimer), userInfo: nil, repeats: false)
+
+            //次は24時間後に出す
+            let tomorrow = date.timeIntervalSinceNow + (24 * 3600)
+            if let tiemr = self.timer {
+                if tiemr.isValid == true {
+                    tiemr.invalidate()
+                }
+            }
+            self.timer = Timer.scheduledTimer(timeInterval: tomorrow, target: self, selector: #selector(MainViewModel.updateTimer), userInfo: nil, repeats: true)
         }
     }
+
     @objc func updateTimer() {
         let now = Date()
 
@@ -66,11 +77,10 @@ class MainViewModel {
 
         let utterance = AVSpeechUtterance(string: "本日は\(string)です")
         let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(Defaults[.count]/2)です")
-        let utterance2 = AVSpeechUtterance(string: "夏休みは残り一週間です")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         self.talker.speak(utterance)
         self.talker.speak(utterance1)
-        self.talker.speak(utterance2)
+
     }
     
     @objc func proximityChanged() {
