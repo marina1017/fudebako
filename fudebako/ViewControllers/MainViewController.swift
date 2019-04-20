@@ -15,29 +15,32 @@ class MainViewController: UIViewController {
     let talker = AVSpeechSynthesizer()
 
     //MARK: MainView
-    private lazy var mainView: UIView = {
+    private lazy var mainView: MainView = {
         let view = MainView()
         return view
     }()
 
-
+    var viewModel: MainViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.view.addSubViewWithInsetsForParent(self.mainView, with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         self.navigationController?.navigationBar.barTintColor = UIColor.black
+        self.viewModel = MainViewModel(self.mainView)
+        self.viewModel.startTimer()
+        self.viewModel.initEvent()
 
-        //ここから修正が必要
         // 近接監視が有効（true）か無効かを示すブール値
         UIDevice.current.isProximityMonitoringEnabled = true
-        //照度センサーを監視
-        NotificationCenter.default.addObserver(self,
-                                               selector: Selector("proximityChanged"),
-                                               name:UIDevice.proximityStateDidChangeNotification,
-                                               object: nil)
+
+        //ここから修正が必要
         Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(MainViewController.timerUpdate), userInfo: nil, repeats: true)
         //ここまで
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.mainView.bindDescription(Defaults[.count])
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,7 +61,6 @@ class MainViewController: UIViewController {
 
         let string = formatter.string(from: now)
 
-        print(string)
         let utterance = AVSpeechUtterance(string: "本日は\(string)です")
         let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(self.boxClosedCount/2)です")
         let utterance2 = AVSpeechUtterance(string: "夏休みは残り一週間です")
@@ -66,17 +68,6 @@ class MainViewController: UIViewController {
         self.talker.speak(utterance)
         self.talker.speak(utterance1)
         self.talker.speak(utterance2)
-        Defaults[.count] += 1
-        print("Defaults[.count]",Defaults[.count])
-    }
-
-    @objc func proximityChanged() {
-        print(">>>")
-        //状態を表示
-        print("\(UIDevice.current.proximityState)")
-        self.boxClosedCount += 1
-        print("self.boxClosedCount",self.boxClosedCount)
-
     }
 }
 

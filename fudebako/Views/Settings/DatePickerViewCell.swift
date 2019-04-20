@@ -43,10 +43,7 @@ class DatePickerViewCell: UITableViewCell {
 
     //datepickerが選択されたら
     @objc func datePickerValueChanged(sender: UIDatePicker) {
-        print("てすと",sender)
-        //つかうかわからないけど一応準備
         Notification.post("DatePickerViewCell.datePickerValueChanged", userInfo: ["Date": sender.date])
-        //userDefaultにデータを保存させる
 
     }
 
