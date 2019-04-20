@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, DialogDisplayable {
 
     enum CellType {
         case datePickerViewCell
@@ -39,6 +39,8 @@ class SettingViewController: UIViewController {
         self.view.backgroundColor = Appearance.color.background
         self.view.addSubViewWithFittingParent(self.tableView)
 
+        self.viewModel = SettingViewModel(self)
+        self.viewModel.initEvent()
         
     }
 
@@ -62,7 +64,7 @@ extension SettingViewController: UITableViewDelegate {
         case .datePickerViewCell:
             print(".datePickerViewCell")
         case .defaultCell:
-            self.resetCount()
+            self.viewModel.resetCount()
         }
 
     }
@@ -75,28 +77,6 @@ extension SettingViewController: UITableViewDelegate {
     //MARK: セルの編集を禁止
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
-    }
-
-    //MARK: カウントをリセットをする関数
-    private func resetCount() {
-
-        self.showDialog(nil,
-                        message: "カウントした回数が\nリセットされますがよろしいですか？",
-                        success: { alert in
-                            //                            //初期化
-                            //                            self.count = 0
-        },
-                        failure: nil)
-    }
-
-    //MARK: ダイアログを出す関数
-    private func showDialog(_ title: String?, message: String, success:((UIAlertAction)-> Void)?, failure:((UIAlertAction) -> Void)?) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: success)
-        let cancelAction = UIAlertAction(title: "キャンセル", style: UIAlertAction.Style.cancel, handler: failure)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController,animated: true, completion: nil)
     }
 }
 

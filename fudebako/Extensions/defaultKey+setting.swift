@@ -11,7 +11,7 @@ import Foundation
 extension DefaultsKeys {
 
     //音でお知らせされる時間
-    public static let notifiedTime = DefaultsKey<Date>("notifiedTime")
+    public static let notifiedTime = DefaultsKey<Date?>("notifiedTime")
     //照度センサーが反応した回数(開けしめした回数)
     public static let count = DefaultsKey<Int>("count")
 }

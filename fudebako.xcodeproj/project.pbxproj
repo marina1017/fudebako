@@ -26,6 +26,7 @@
 		C0BE12AD226B1EAD00E93D24 /* defaultKey+setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12AC226B1EAD00E93D24 /* defaultKey+setting.swift */; };
 		C0BE12AF226B3E1000E93D24 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12AE226B3E1000E93D24 /* MainViewModel.swift */; };
 		C0BE12B2226B3E3300E93D24 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12B1226B3E3300E93D24 /* SettingViewModel.swift */; };
+		C0BE12B4226B421300E93D24 /* DialogDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BE12B3226B421300E93D24 /* DialogDisplayable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C0BE12AC226B1EAD00E93D24 /* defaultKey+setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "defaultKey+setting.swift"; sourceTree = "<group>"; };
 		C0BE12AE226B3E1000E93D24 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C0BE12B1226B3E3300E93D24 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		C0BE12B3226B421300E93D24 /* DialogDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogDisplayable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 			children = (
 				C0BE1296226A28FE00E93D24 /* UIView+extensions.swift */,
 				C0BE12AC226B1EAD00E93D24 /* defaultKey+setting.swift */,
+				C0BE12B3226B421300E93D24 /* DialogDisplayable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				C0BE12A9226B13E500E93D24 /* Setting.swift in Sources */,
 				C0BE12B2226B3E3300E93D24 /* SettingViewModel.swift in Sources */,
 				C0BE12AB226B1E3100E93D24 /* SwiftyUserDefault.swift in Sources */,
+				C0BE12B4226B421300E93D24 /* DialogDisplayable.swift in Sources */,
 				C0BE129B226A34E800E93D24 /* MainTabViewController.swift in Sources */,
 				C0BE12A7226B112600E93D24 /* Notification.swift in Sources */,
 				C0BE129F226AB0DD00E93D24 /* HeaderView.swift in Sources */,
