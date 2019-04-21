@@ -66,6 +66,20 @@ class MainViewModel {
     }
 
     @objc func updateTimer() {
+        self.speakSiri()
+
+    }
+    
+    @objc func proximityChanged() {
+        Defaults[.count] += 1
+        self.mainView.bindDescription(Defaults[.count])
+        //センサーが二回反応してしまうため2の余剰をとっている
+        if Defaults[.count] % 2 == 0 {
+            self.speakSiri()
+        }
+    }
+
+    func speakSiri(){
         let now = Date()
 
         let formatter = DateFormatter()
@@ -74,18 +88,10 @@ class MainViewModel {
         formatter.locale = Locale(identifier: "ja_JP")
 
         let string = formatter.string(from: now)
-
         let utterance = AVSpeechUtterance(string: "本日は\(string)です")
-        let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(Defaults[.count]/2)です")
+        let utterance1 = AVSpeechUtterance(string: "本日開かれた回数は\(Defaults[.count]/2)回です")
         utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
         self.talker.speak(utterance)
         self.talker.speak(utterance1)
-
-    }
-    
-    @objc func proximityChanged() {
-        Defaults[.count] += 1
-        self.mainView.bindDescription(Defaults[.count])
-
     }
 }
