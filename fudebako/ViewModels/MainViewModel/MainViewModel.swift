@@ -64,10 +64,13 @@ class MainViewModel {
             self.timer = Timer.scheduledTimer(timeInterval: tomorrow, target: self, selector: #selector(MainViewModel.updateTimer), userInfo: nil, repeats: true)
         }
     }
+    
+    func updateLabel(){
+        self.mainView.bindDescription(Defaults[.count])
+    }
 
     @objc func updateTimer() {
         self.speakSiri()
-
     }
     
     @objc func proximityChanged() {
@@ -78,6 +81,7 @@ class MainViewModel {
             self.speakSiri()
         }
     }
+    
 
     func speakSiri(){
         let now = Date()

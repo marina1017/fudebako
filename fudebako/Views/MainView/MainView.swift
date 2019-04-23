@@ -86,7 +86,7 @@ class MainView: UIView {
 
     //MARK: 最新時間の更新
     func bindDescription(_ data: Int) {
-        self.descriptionLabel.text = "本日開かれた回数は\(Defaults[.count]/2)回です"
+        self.descriptionLabel.text = "本日開かれた回数は\(data/2)回です"
     }
 
 }
