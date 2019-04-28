@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "fudebako/ViewModels/MainViewModel/MainViewModel.swift"
-            timestampString = "578136198.938554"
+            filePath = "fudebako/AppDelegate.swift"
+            timestampString = "578160001.7010241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "initEvent()"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "applicationSignificantTimeChange(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -25,10 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationSignificantTimeChange(_ application: UIApplication) {
         
         Defaults[.count] = 0
-        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController as? MainViewController else {
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController as? MainTabViewController else {
             return
         }
-        rootViewController.viewModel.updateLabel()
+        guard let navgationController = rootViewController.selectedViewController as? UINavigationController else{
+            return
+        }
+        
+        guard let vc = navgationController.topViewController as? MainViewController else {
+            return
+        }
+        vc.viewModel.updateLabel()
     }
     
 
