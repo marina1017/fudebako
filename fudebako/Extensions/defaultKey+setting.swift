@@ -14,5 +14,7 @@ extension DefaultsKeys {
     public static let notifiedTime = DefaultsKey<Date?>("notifiedTime")
     //照度センサーが反応した回数(開けしめした回数)
     public static let count = DefaultsKey<Int>("count")
+    //アラートを行う時間
+    public static let aleartTime = DefaultsKey<Date?>("aleartTime")
 }
 
