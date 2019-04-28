@@ -53,13 +53,13 @@ class MainViewModel {
             print("Date(timeIntervalSinceNow: 0)",f.string(from: Date(timeIntervalSinceNow: 18)))
             
             //今の時間から設定されている時間を引く
-            guard let elapsedMinute = Calendar.current.dateComponents([.hour], from: reservedDate, to: Date()).hour else {
+            guard let elapsedMinute = Calendar.current.dateComponents([.second], from: reservedDate, to: Date()).second else {
                 return
             }
             print("elapsedMinute",elapsedMinute)
             //1時間以上経過しているのであれば
             //24時間以上経過しているのであれば
-            if elapsedMinute > 1 {
+            if elapsedMinute > 24*60*60 {
                 //設定されていた時間に今の時間を加える
                 Defaults[.notifiedTime] =  Date()
                 //Siriに声をあげさせる
